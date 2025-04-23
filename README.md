@@ -66,7 +66,7 @@ python extract_transcript_orf_phylocsff_score.py \
 
 ## Overview
 
-This script analyzes the alignment of reads from a BAM file against annotated ORFs (Open Reading Frames) provided in a CSV file. It calculates how well each read covers the ORFs and summarizes statistics across all reads, including average coverage scores, match ratios, and coverage patterns. We use **avg_ORF_match_score** as the **ORF-normalized_read_coverage_score** in article.
+This script analyzes the alignment of reads from a BAM file against annotated ORFs (Open Reading Frames) provided in a CSV file. It calculates how well each read covers the ORFs and summarizes statistics across all reads, including average coverage scores, match ratios, and coverage patterns. We use `avg_ORF_match_score` as the `ORF-normalized_read_coverage_score` in article.
 
 
 ## Input Files
