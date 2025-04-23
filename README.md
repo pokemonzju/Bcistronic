@@ -1,6 +1,11 @@
 
 
 
+
+# Input
+
+
+
 # ORF CSV File Format Requirements
 This script requires an input CSV file (orf_csv_file) with the following mandatory columns:
 Trans_ID: Transcript ID.
