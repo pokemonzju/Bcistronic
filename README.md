@@ -61,7 +61,8 @@ python extract_transcript_orf_phylocsff_score.py \
 - UCSC's `bigWigSummary` tool
 
 
-# calculate_reads_coverage_base_bamfile.py
+
+# `calculate_reads_coverage_base_bamfile.py`
 
 ## Overview
 
