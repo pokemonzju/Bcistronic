@@ -60,3 +60,69 @@ python extract_transcript_orf_phylocsff_score.py \
 - `pandas`
 - UCSC's `bigWigSummary` tool
 
+
+# calculate_reads_coverage_base_bamfile.py
+
+## Overview
+
+This script analyzes the alignment of reads from a BAM file against annotated ORFs (Open Reading Frames) provided in a CSV file. It calculates how well each read covers the ORFs and summarizes statistics across all reads, including average coverage scores, match ratios, and coverage patterns. We use **avg_ORF_match_score** as the **ORF-normalized_read_coverage_score** in article.
+
+
+## Input Files
+
+- **BAM file**: Contains aligned sequencing reads (e.g., RNA-seq, Ribo-seq) in binary alignment format.
+- **ORF CSV file**: Describes genomic locations of ORFs using the following structure:
+    - `Chromosome`: Chromosome name
+    - `Strand`: '+' or '-'
+    - `ORF_genome_location`: e.g., `ORF1_[(100-200); (300-400)] | ORF2_[(500-600)]`
+
+
+## Features
+
+1. **Parse ORF file**: Extract ORF names and segment intervals.
+2. **Build interval trees**: Create genomic interval maps for fast overlap checking.
+3. **Parse BAM file**:
+   - For each read, determine overlaps with ORF regions.
+   - Compute per-read ORF match score.
+   - Track which ORFs were covered and the extent of coverage.
+4. **Summarize results**:
+   - Average per-read match score
+   - Average match ratio for each ORF
+   - Number of reads that match only a single ORF
+   - Number of reads that match multiple ORFs
+   - Formatted summary strings for ORF match information
+
+## Output Files
+
+- `[trans_id]_result.csv`: Detailed results per read, including:
+    - `Reads_name`
+    - `Reads_ORF_score`
+    - `Covered_ORFs`
+    - `ORF_match_info`
+    - `ORF_match_ratio`
+
+- `[trans_id]_merge.csv`: Summary statistics including:
+    - `avg_Reads_ORF_score`
+    - `avg_ORF_match_score`
+    - `avg_ORF_match_info`
+    - `avg_ORF_match_ratio`
+    - `Single_ORF_reads`
+    - `Positive_ORF_reads`
+
+
+## Example Usage
+
+```bash
+python calculate_reads_coverage_base_bamfile.py \
+  --bam_file sample.bam \
+  --orf_file transcript123.csv
+```
+
+## Requirements
+
+- Python package
+- `pysam`
+- `pandas`
+- `intervaltree`
+
+
