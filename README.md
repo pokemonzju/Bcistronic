@@ -1,4 +1,4 @@
-#  `extract_transcript_orf_phylocsff_score.py`
+#  `extract_transcript_orf_phylocsf_score.py`
 
 ## Overview
 
